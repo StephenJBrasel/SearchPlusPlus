@@ -1,0 +1,91 @@
+{
+  "name": "searchpp",
+  "displayName": "Search++",
+  "description": "Adds find-in-document and search filters",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.53.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:searchpp.helloWorld"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration":{
+      "title": "Search++",
+      "properties": {
+        "searchpp.view.searchSidebar":{
+          "type": "boolean",
+          "default": false,
+          "description": "On the (`Find`) command (Ctrl+F), opens the sidebar's search view filtered to the current editor."
+        },
+        "searchpp.filters":{
+          "type": "array",
+          "default": [
+            {
+              "name": "Project",
+              "description": "Follows user settings for ignoring globals and locals to search the active directory.",
+              "include": "*",
+              "exclude": ""
+            },
+            {
+              "name": "Current Document",
+              "description": "Searches the document of the last focused editor tab.",
+              "include": "", 
+              "exclude": ""
+            }
+          ],
+          "description": "An array of default and custom filters that populate the drop-down menu in the sidebar's search view."
+        },
+        "searchpp.explorer.keepFilters":{
+          "type": "array",
+          "default":[
+            {
+              "name": "Always",
+              "description": "Every unique filter created by searching via the (`Find`) action in the sidebar Explorer view will be added to the custom user filters."
+            },
+            {
+              "name": "Smart",
+              "description": "Filters of only one element will be ignored. Unique filters with multiple elements will be added to the custom user filters."
+            },
+            {
+              "name": "Never",
+              "description": ""
+            }
+          ],
+          "description": "Stores the filter for the selected folders and files when using the (`Find`) action in the sidebar's explorer view."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "searchpp.helloWorld",
+        "title": "Search++: Hello"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.53.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^7.19.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.2.1",
+    "typescript": "^4.1.3",
+    "vscode-test": "^1.5.0"
+  }
+}
