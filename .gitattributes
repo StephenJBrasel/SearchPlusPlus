@@ -1,0 +1,4 @@
+
+# eslint specifies LF line endings.
+*.ts text eol=lf
+*.js text eol=lf
