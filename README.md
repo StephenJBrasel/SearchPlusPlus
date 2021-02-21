@@ -4,7 +4,7 @@
 
 ## Planned Features
 
-  * Adds an option in the search actionbar (`Ctrl+F`)<!-- TODO: See if there's a way to detect user keybindings and populate appropriate README.md fields.--> to show results in the sidebar's search view (`Ctrl+Shift+F`) for the current document.
+  * Adds an option in the search actionbar (`Ctrl+F`) to show results in the sidebar's search view (`Ctrl+Shift+F`) for the current document.<!-- TODO: See if there's a way to detect user keybindings and populate appropriate README.md fields.-->
   * Adds filters drop-down to sidebar's search view with pre-built filters like Project, file, filetype, etc., as well as the option to create custom filters and store them in settings.
   * Adds context-menu search to sidebar's Explorer view to select one or more folders/files to apply a filter for a search in.
   * Adds context-menu search to current document.
