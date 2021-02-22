@@ -6,15 +6,18 @@
 * [ ] Adds filters drop-down to sidebar's search view with pre-built filters like Project, Current Document, Current Filetype, etc., as well as the option to create custom filters and store them in settings. <!-- Dynamically append the appropriate name to the preset filters, if possible ((Current Project (searchpp)), (Current Document (README.md)), (Current FileType (.md)), etc.) --> <!-- TODO: Give the option to save filters to User Filters (global) or Workspace filters (.vscode folder  + settings.json file generation/amendment)  -->
 * [ ] Adds context-menu search to sidebar's Explorer view to select one or more folders/files to apply a filter for a search in.
 * [ ] Adds context-menu search to current document.
+  *  [ ] Adds Search By Filter
+  *  [ ] Adds Find in File
+  *  [ ] Adds Replace in File
+  *  [ ] Adds Find in Files
+  *  [x] Adds Replace in Files
+  ![Editor Context Menu - Replace in Files action](images/EditorContextReplaceInFiles.gif)
 * [ ] Adds (`Select Next Occurrence`, <!-- Ctrl+D --> `Deselect Occurrence`, <!-- Ctrl+U --> and `Select All Occurrences` <!-- Ctrl+Shift+L -->) to current document context-menu and (`Find`) actionbar.
 * [ ] Adds option to select multiple occurrences (within one document) via the multi-select modifier (Ctrl/Cmd/Alt) from the sidebar's search view. <!-- TODO: upon holding the multiple selection modifier, visibly and programmatically disable clicking on search occurrences in other documents.-->
 
 <!-- Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
 
 For example if there is an image subfolder under your extension project workspace: -->
-
-Placeholder gif of search seeding:
-![Search seeding by selecting text, using the Find command, and having the find actionbar auto-fill with the selected text](images/double-click-search.gif)
 
 <!-- > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow. -->
 
