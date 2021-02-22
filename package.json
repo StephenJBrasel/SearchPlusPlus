@@ -2,6 +2,7 @@
   "name": "searchpp",
   "displayName": "Search++",
   "description": "Adds find-in-document and search filters",
+  "publisher": "BlastedBadger",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.53.0"
@@ -10,7 +11,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:searchpp.helloWorld"
+    "onCommand:searchpp.searchByFilter"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -36,34 +37,64 @@
               "description": "Searches the document of the last focused editor tab.",
               "include": "", 
               "exclude": ""
+            },
+            {
+              "name": "Current FileType",
+              "description": "Searches all documents that have the same filetype as the last focused editor tab.",
+              "include": "", 
+              "exclude": ""
             }
           ],
-          "description": "An array of default and custom filters that populate the drop-down menu in the sidebar's search view."
+          "description": "An array of default and custom filters that populate the drop-down menu in the sidebar's search view.",
+          "scope": "window"
         },
         "searchpp.explorer.keepFilters":{
-          "type": "array",
-          "default":[
-            {
-              "name": "Always",
-              "description": "Every unique filter created by searching via the (`Find`) action in the sidebar Explorer view will be added to the custom user filters."
-            },
-            {
-              "name": "Smart",
-              "description": "Filters of only one element will be ignored. Unique filters with multiple elements will be added to the custom user filters."
-            },
-            {
-              "name": "Never",
-              "description": ""
-            }
-          ],
-          "description": "Stores the filter for the selected folders and files when using the (`Find`) action in the sidebar's explorer view."
+          "type": "string",
+          "default":"Smart",
+          "enum": ["Always", "Smart", "Never"],
+          "enumDescriptions": [
+            "Every unique filter created by searching via the (`Find`) action in the sidebar Explorer view will be added to the custom user filters.",
+            "Filters of only one element will be ignored. Unique filters with multiple elements will be added to the custom user filters.",
+            "Do not automatically store filters created by searching the explorer."
+          ]
         }
       }
     },
     "commands": [
       {
-        "command": "searchpp.helloWorld",
-        "title": "Search++: Hello"
+        "command": "searchpp.searchByFilter",
+        "title": "Search++: Search By Filter"
+      }
+    ],
+    "menus":{
+      "explorer/context": [
+        {
+          "when": "explorerViewletVisible",
+          "command": "searchpp.searchByFilter",
+          "group": "Search++"
+        }
+      ],
+      "editor/context": [
+        {
+          "submenu": "searchpp.SearchOrReplace",
+          "group": "Search++"
+        }
+      ],
+      "searchpp.SearchOrReplace": [
+        {
+          "command": "searchpp.searchByFilter",
+          "group": "navigation"
+        },
+        {
+          "command": "workbench.action.replaceInFiles",
+          "group": "files"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "searchpp.SearchOrReplace",
+        "label": "Find/Replace"
       }
     ]
   },
