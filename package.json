@@ -11,7 +11,11 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:searchpp.searchByFilter"
+    "onCommand:searchpp.searchByFilter",
+    "onCommand:action.find",
+    "onCommand:editor.action.startFindReplaceAction",
+    "onCommand:workbench.action.findInFiles",
+    "onCommand:workbench.action.replaceInFiles"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -63,7 +67,23 @@
     "commands": [
       {
         "command": "searchpp.searchByFilter",
-        "title": "Search++: Search By Filter"
+        "title": "Search++: Find by Filter"
+      },
+      {
+        "command": "actions.find",
+        "title": "Find"
+      },
+      {
+        "command": "editor.action.startFindReplaceAction",
+        "title": "Replace"
+      },
+      {
+        "command": "workbench.action.findInFiles",
+        "title": "Find in Files"
+      },
+      {
+        "command": "workbench.action.replaceInFiles",
+        "title": "Replace in Files"
       }
     ],
     "menus":{
@@ -84,6 +104,18 @@
         {
           "command": "searchpp.searchByFilter",
           "group": "navigation"
+        },
+        {
+          "command": "actions.find",
+          "group": "document"
+        },
+        {
+          "command": "editor.action.startFindReplaceAction",
+          "group": "document"
+        },
+        {
+          "command": "workbench.action.findInFiles",
+          "group": "files"
         },
         {
           "command": "workbench.action.replaceInFiles",
